@@ -1,6 +1,8 @@
 $(function(){
+	var value = $('#avalue').val()
     
    $('.changebtn').click(function(){ 
+   	alert(value);
    	var element = $(this).attr('id');
 
    color = $('#'+ element + 'input').val();
