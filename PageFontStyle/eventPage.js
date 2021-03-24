@@ -8,6 +8,19 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     }
 });
 
+var dataval;
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+    if (request.todo == "insertvalues")
+    {
+        dataval = request.data;
+        alert(dataval);
+    }
+});
 
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.method == "getStatus") {
 
+        sendResponse({ method: "peepee", data: dataval })
+    }
+});
