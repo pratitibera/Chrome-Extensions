@@ -1,4 +1,11 @@
+chrome.runtime.connect({
+  name: "popup"
+});
+
+
 $(function () {
+
+  chrome.runtime.sendMessage('pageActionClicked');
 
   var dataval = ["", "", "", ""];
   var attachment;
@@ -8,7 +15,6 @@ $(function () {
     data: dataval,
     attachment: attachment
   }, function (res) {
-    //alert(res.attachment);
     $('#ainput').val(res.data[0]);
     $('#binput').val(res.data[1]);
     $('#cinput').val(res.data[2]);
@@ -33,9 +39,9 @@ $(function () {
       currentWindow: true
     }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {
-        todo: "changeColor",
-        clickedColor: color,
-        clickedElement: element
+        todo: "changeStatus",
+        clickedInput: color,
+        clickedButton: element
       });
     });
   });

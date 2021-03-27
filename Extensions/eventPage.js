@@ -9,6 +9,21 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	}
 });
 
+chrome.runtime.onConnect.addListener(function (port) {
+	if (port.name === "popup") {
+		port.onDisconnect.addListener(function () {
+			chrome.tabs.query({
+				active: true
+			}, function (tabs) {
+				chrome.tabs.sendMessage(tabs[0].id, {
+					"todo": 'unhideButton'
+				});
+			})
+
+		});
+	}
+});
+
 var dataval;
 var attachment;
 
@@ -22,9 +37,20 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request.method == "getStatus") {
 		sendResponse({
-			method: "peepee",
 			data: dataval,
 			attachment: attachment
+		})
+	}
+});
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+	if (message === 'pageActionClicked') {
+		chrome.tabs.query({
+			active: true
+		}, function (tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {
+				"todo": 'hideButton'
+			});
 		})
 	}
 });
