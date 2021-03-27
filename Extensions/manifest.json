@@ -23,13 +23,13 @@
 
   "content_scripts":[
     {
-      "matches": ["https://pratitibera.github.io/Chrome-Extensions/"],
+      "matches": ["file:///C:/Users/Name/Documents/Chrome-Extension/index.html"],
       "js": ["content.js", "jquery-3.1.0.min.js"]
     }
   ],
 
   "permissions": [
     "tabs",
-    "https://pratitibera.github.io/Chrome-Extensions/"
+    "file:///C:/Users/Name/Documents/Chrome-Extension/index.html"
         ]
 }
