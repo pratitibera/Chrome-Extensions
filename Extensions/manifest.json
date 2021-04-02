@@ -23,13 +23,13 @@
 
   "content_scripts":[
     {
-      "matches": ["file:///C:/Users/Name/Documents/Chrome-Extension/index.html"],
+      "matches": ["file:///C:/Users/Name/Documents/Chrome-Extensions/Bug%20Format.html"],
       "js": ["content.js", "jquery-3.1.0.min.js"]
     }
   ],
 
   "permissions": [
     "tabs",
-    "file:///C:/Users/Name/Documents/Chrome-Extension/index.html"
+    "file:///C:/Users/Name/Documents/Chrome-Extensions/Bug%20Format.html"
         ]
 }

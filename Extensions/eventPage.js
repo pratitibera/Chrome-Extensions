@@ -24,24 +24,6 @@ chrome.runtime.onConnect.addListener(function (port) {
 	}
 });
 
-var dataval;
-var attachment;
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	if (request.todo == "insertvalues") {
-		dataval = request.data;
-		attachment = request.attachment;
-	}
-});
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	if (request.method == "getStatus") {
-		sendResponse({
-			data: dataval,
-			attachment: attachment
-		})
-	}
-});
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	if (message === 'pageActionClicked') {
@@ -51,6 +33,28 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			chrome.tabs.sendMessage(tabs[0].id, {
 				"todo": 'hideButton'
 			});
+		})
+	}
+});
+
+var selector1, selector2, selector3, selector4;
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+	if (request.todo == "insertvalues") {
+		selector1 = request.selector1;
+		selector2 = request.selector2;
+		selector3 = request.selector3;
+		selector4 = request.selector4
+	}
+});
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+	if (request.method == "getStatus") {
+		sendResponse({
+		selector1: selector1,
+		selector2: selector2,
+		selector3: selector3,
+		selector4: selector4
 		})
 	}
 });

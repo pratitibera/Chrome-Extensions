@@ -11,189 +11,158 @@
    <body>
       <div class="wrapper-popup">
          <div class="row">
-            <div class="col-10">
+            <div class="col-sm-12">
                <div class="inputfield">
-                  <label>Attachment available?</label>
+                  <label>Problem Statement</label>
+                  <input type="text" class="input" id="ainput">
                </div>
             </div>
-            <div class="col-2">
-               <img id="Attachment-image" style="width: 50%;"> 
-            </div>
-         </div>
-         <br>
-         <div class="row">
-            <div class="col-sm-6">
-               <div class="form">
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Problem Statement</label>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="text" class="input" id="ainput">
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="a">
-                        </div>
-                     </div>
-                  </div>
-                  <br>
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Analysis</label>  
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="text" class="input" id="binput">
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="b">
-                        </div>
-                     </div>
-                  </div>
-                  <br>
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Firer Link</label>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="text" class="input" id="cinput">
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="c">
-                        </div>
-                     </div>
-                  </div>
-                  <br>
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Next for customer</label>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="text" class="input" id="dinput">
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="d">
-                        </div>
-                     </div>
-                  </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>List all reported items</label>
+                  <input type="text" class="input" id="binput">
                </div>
             </div>
-            <div class="col-sm-6">
-               <div class="form">
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Problem statement</label>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <div class="custom_select">
-                              <select>
-                                 <option value=""></option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="a">
-                        </div>
-                     </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>Analysis</label>  
+                  <input type="text" class="input" id="cinput">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>Firemem Link</label>  
+                  <input type="text" class="input" id="dinput">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>Items force refreshed?</label> 
+                  <input type="text" class="input" id="einput">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>Attachments as required?</label>
+                  <input type="text" class="input" id="finput">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>Current production status</label>
+                  <input type="text" class="input" id="ginput">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <input type="button" value="UPDATE" class="btn" id="saveInputs">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>Agent Status</label>
+                  <div class="custom_select">
+                     <select id="cf_agent_status">
+                        <option value="---" id="v2_cf_agent_status">---</option>
+                        <option value="Already Supported" id="v6_cf_agent_status">Already Supported</option>
+                        <option value="Canot Support" id="v8_cf_agent_status">Canot Support</option>
+                        <option value="Done" id="v18_cf_agent_status">Done</option>
+                        <option value="Feasible" id="v12_cf_agent_status">Feasible</option>
+                        <option value="Monitoring" id="v14_cf_agent_status">Monitoring</option>
+                        <option value="Need Info" id="v10_cf_agent_status">Need Info</option>
+                        <option value="Request Filed" id="v20_cf_agent_status">Request Filed</option>
+                        <option value="To Enable" id="v22_cf_agent_status">To Enable</option>
+                        <option value="User on Beta" id="v16_cf_agent_status">User on Beta</option>
+                     </select>
                   </div>
-                  <br>
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Analysis</label>  
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <div class="custom_select">
-                              <select>
-                                 <option value=""></option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="b">
-                        </div>
-                     </div>
+                  <input type="button" value="Save" class="btn btn2" id="_agent_status">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>Agent Types</label>
+                  <div class="custom_select">
+                     <select id="cf_agent_type" name="cf_agent_type">
+                        <option value="---" id="v2_cf_agent_type">---</option>
+                        <option value="Beta" id="v4_cf_agent_type">Beta</option>
+                        <option value="Full Agent" id="v6_cf_agent_type">Full Agent</option>
+                        <option value="Ospy Only" id="v8_cf_agent_type">Ospy Only</option>
+                     </select>
                   </div>
-                  <br>
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Firer link</label>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <div class="custom_select">
-                              <select>
-                                 <option value=""></option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="c">
-                        </div>
-                     </div>
+                  <input type="button" value="Save" class="btn btn2" id="_agent_type">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>IAE RCA Categories</label>
+                  <div class="custom_select">
+                     <select id="cf_rca_categories" name="cf_rca_categories">
+                        <option value="---" id="v1_cf_rca_categories" selected="selected">---</option>
+                        <option value="IAE - Account Issue" id="v2_cf_rca_categories">IAE - Account Issue</option>
+                        <option value="IAE - Incorrect Impact Analysis" id="v3_cf_rca_categories">IAE - Incorrect Impact Analysis</option>
+                        <option value="IAE - Certificate Issue" id="v4_cf_rca_categories">IAE - Certificate Issue</option>
+                        <option value="IAE - Data Quality" id="v5_cf_rca_categories">IAE - Data Quality</option>
+                        <option value="IAE - Holding Issue" id="v6_cf_rca_categories">IAE - Holding Issue</option>
+                        <option value="IAE - Incorrect Site/Container Account Aggregation" id="v7_cf_rca_categories">IAE - Incorrect Site/Container Account Aggregation</option>
+                        <option value="IAE - Infra Error" id="v8_cf_rca_categories">IAE - Infra Error</option>
+                        <option value="IAE - New Site Request" id="v9_cf_rca_categories">IAE - New Site Request</option>
+                        <option value="IAE - MFA Issue" id="v10_cf_rca_categories">IAE - MFA Issue</option>
+                        <option value="IAE - No Issue, User Request" id="v11_cf_rca_categories">IAE - No Issue, User Request</option>
+                        <option value="IAE - Platform/Application Issue" id="v12_cf_rca_categories">IAE - Platform/Application Issue</option>
+                        <option value="IAE - Site Variation" id="v13_cf_rca_categories">IAE - Site Variation</option>
+                        <option value="IAE - Site Temporary Issue" id="v14_cf_rca_categories">IAE - Site Temporary Issue</option>
+                        <option value="IAE - Statement Issue" id="v15_cf_rca_categories">IAE - Statement Issue</option>
+                        <option value="IAE - Transaction Issue" id="v16_cf_rca_categories">IAE - Transaction Issue</option>
+                        <option value="IAE - User Specific Issue" id="v17_cf_rca_categories">IAE - User Specific Issue</option>
+                        <option value="IAE – Product/Feature Enhancement" id="v18_cf_rca_categories">IAE – Product/Feature Enhancement</option>
+                        <option value="IAE - None Of The Above" id="v19_cf_rca_categories">IAE - None Of The Above</option>
+                     </select>
                   </div>
-                  <br>
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="inputfield">
-                           <label>Next for customer</label>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <div class="custom_select">
-                              <select>
-                                 <option value=""></option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                              </select>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-3">
-                        <div class="inputfield">
-                           <input type="button" value="Save" class="btn changebtn" id="d">
-                        </div>
-                     </div>
+                  <input type="button" value="Save" class="btn btn2" id="_rca_categories">
+               </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-12">
+               <div class="inputfield">
+                  <label>IAE RCA Sub Categories</label>
+                  <div class="custom_select">
+                     <select id="cf_iae_resolution" name="cf_iae_resolution" size="5" multiple="multiple">
+                        <option value="Already Fixed" id="v1_cf_iae_resolution">Already Fixed</option>
+                        <option value="CS DST Involved" id="v11_cf_iae_resolution">CS DST Involved</option>
+                        <option value="SRE Involved" id="v13_cf_iae_resolution">SRE Involved</option>
+                        <option value="Code changes - All Users" id="v2_cf_iae_resolution">Code changes - All Users</option>
+                        <option value="Code Changes - User specific" id="v3_cf_iae_resolution">Code Changes - User specific</option>
+                        <option value="CS/Customer Input Required" id="v4_cf_iae_resolution">CS/Customer Input Required</option>
+                        <option value="DB Data change - LTT" id="v5_cf_iae_resolution">DB Data change - LTT</option>
+                        <option value="DB Data change - UDC/YAD" id="v6_cf_iae_resolution">DB Data change - UDC/YAD</option>
+                        <option value="Force Refresh" id="v7_cf_iae_resolution">Force Refresh</option>
+                        <option value="Known Cobrand Issue" id="v8_cf_iae_resolution">Known Cobrand Issue</option>
+                        <option value="Known Site Issue" id="v9_cf_iae_resolution">Known Site Issue</option>
+                        <option value="No Fix from IAE" id="v10_cf_iae_resolution">No Fix from IAE</option>
+                     </select>
                   </div>
+                  <input type="button" value="Save" class="btn btn2" id="_iae_resolution">
                </div>
             </div>
          </div>

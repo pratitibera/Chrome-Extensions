@@ -10,6 +10,7 @@ body{
   background: #f4f4f4;
   /* padding: 0 10px; */
   width: 800px;
+  overflow-x: hidden;
 }
 .wrapper-popup{
   /* width: 800px; */
@@ -33,43 +34,43 @@ body{
   width: 100%;
 }
 
-.wrapper-popup .form .inputfield{
+.wrapper-popup .inputfield{
   margin-bottom: 15px;
   display: flex;
   align-items: center;
 }
 
-.wrapper-popup .form .inputfield label{
-   width: 200px;
+.wrapper-popup .inputfield label{
+   width: 220px;
    color: #757575;
-   margin-right: 10px;
-  font-size: 14px;
+   margin-right: 0px;
+  font-size: 10px;
 }
 
-.wrapper-popup .form .inputfield .input,
-.wrapper-popup .form .inputfield .textarea{
+.wrapper-popup .inputfield .input,
+.wrapper-popup .inputfield .textarea{
   width: 100%;
   outline: none;
   border: 1px solid #d5dbd9;
   font-size: 15px;
-  padding: 8px 10px;
+  padding: 4px 6px;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
 
-.wrapper-popup .form .inputfield .textarea{
+.wrapper-popup .inputfield .textarea{
   width: 100%;
   height: 80px;
   resize: none;
 }
 
-.wrapper-popup .form .inputfield .custom_select{
+.wrapper-popup .inputfield .custom_select{
   position: relative;
   width: 100%;
   height: 37px;
 }
 
-.wrapper-popup .form .inputfield .custom_select:before{
+.wrapper-popup .inputfield .custom_select:before{
   content: "";
   position: absolute;
   top: 12px;
@@ -79,7 +80,7 @@ body{
   pointer-events: none;
 }
 
-.wrapper-popup .form .inputfield .custom_select select{
+.wrapper-popup .inputfield .custom_select select{
   -webkit-appearance: none;
   -moz-appearance:   none;
   appearance:        none;
@@ -94,37 +95,37 @@ body{
 }
 
 
-.wrapper-popup .form .inputfield .input:focus,
-.wrapper-popup .form .inputfield .textarea:focus,
-.wrapper-popup .form .inputfield .custom_select select:focus{
+.wrapper-popup .inputfield .input:focus,
+.wrapper-popup .inputfield .textarea:focus,
+.wrapper-popup .inputfield .custom_select select:focus{
   border: 1px solid #00838f;
 }
 
-.wrapper-popup .form .inputfield p{
+.wrapper-popup .inputfield p{
    font-size: 14px;
    color: #757575;
 }
-.wrapper-popup .form .inputfield .check{
+.wrapper-popup .inputfield .check{
   width: 15px;
   height: 15px;
   position: relative;
   display: block;
   cursor: pointer;
 }
-.wrapper-popup .form .inputfield .check input[type="checkbox"]{
+.wrapper-popup .inputfield .check input[type="checkbox"]{
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
 }
-.wrapper-popup .form .inputfield .check .checkmark{
+.wrapper-popup .inputfield .check .checkmark{
   width: 15px;
   height: 15px;
   border: 1px solid #00838f;
   display: block;
   position: relative;
 }
-.wrapper-popup .form .inputfield .check .checkmark:before{
+.wrapper-popup .inputfield .check .checkmark:before{
   content: "";
   position: absolute;
   top: 1px;
@@ -136,15 +137,15 @@ body{
   transform: rotate(-45deg);
   display: none;
 }
-.wrapper-popup .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
+.wrapper-popup .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
   background: #00838f;
 }
 
-.wrapper-popup .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
+.wrapper-popup .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
   display: block;
 }
 
-.wrapper-popup .form .inputfield .btn{
+.wrapper-popup .inputfield .btn{
   width: 100%;
    padding: 8px 10px;
   font-size: 15px; 
@@ -156,23 +157,39 @@ body{
   outline: none;
 }
 
-.wrapper-popup .form .inputfield .btn:hover{
+.wrapper-popup .inputfield .btn:hover{
+  background: #00838f;
+}
+.wrapper-popup .inputfield .btn2{
+  width: 20%;
+   padding: 8px 10px;
+  font-size: 15px; 
+  border: 0px;
+  background:  #00838f;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+  margin-left: 15px;
+}
+
+.wrapper-popup .inputfield .btn:hover{
   background: #00838f;
 }
 
-.wrapper-popup .form .inputfield:last-child{
+.wrapper-popup .inputfield:last-child{
   margin-bottom: 0;
 }
 
 @media (max-width:420px) {
-  .wrapper-popup .form .inputfield{
+  .wrapper-popup .inputfield{
     flex-direction: column;
     align-items: flex-start;
   }
-  .wrapper-popup .form .inputfield label{
+  .wrapper-popup .inputfield label{
     margin-bottom: 5px;
   }
-  .wrapper-popup .form .inputfield.terms{
+  .wrapper-popup .inputfield.terms{
     flex-direction: row;
   }
 }
