@@ -35,14 +35,16 @@ $(function () {
 
   chrome.runtime.sendMessage('pageActionClicked');
 
+   var selectedSubCategory;
+
   chrome.runtime.sendMessage({
     method: "getStatus"
   }, function (res) {
-	//alert(res.selector3);
+    selectedSubCategory = res.selector3;
+
     document.getElementById("cf_department").selectedIndex = res.selector1;
     document.getElementById("cf_rca_categories").selectedIndex = res.selector2;
-	   $("#cf_rca_sub_categories option[value|='" + res.selector3 + "']").attr('selected', 'selected');
-    document.getElementById("cf_rca_sub_categories").selectedIndex = res.selector3;
+    //document.getElementById("cf_rca_sub_categories").selectedIndex = res.selector3;
     document.getElementById("cf_workflow_status").selectedIndex = res.selector5;
     document.getElementById("cf_bug_status").selectedIndex = res.selector6;
     document.getElementById("cf_resolution").selectedIndex = res.selector7;
@@ -53,7 +55,7 @@ $(function () {
     return true;
   });
 
-  var Attachments, ForceRefreshed, screenshots, siteerror, feedDetails;
+  var Attachments, ForceRefreshed;
 
   $("input[name='Attachments']").click(function () {
 
@@ -82,46 +84,6 @@ $(function () {
       }
     });
   });
-  $("input[name='screenshots']").click(function () {
-
-    var checkbox = $(this).attr('value');
-
-    var checkboxes = document.getElementsByName("screenshots");
-    checkboxes.forEach((item) => {
-      if (item.value !== checkbox) {
-        item.checked = false;
-      } else {
-        screenshots = item.value;
-      }
-    });
-  });
-  $("input[name='siteerror']").click(function () {
-
-    var checkbox = $(this).attr('value');
-
-    var checkboxes = document.getElementsByName("siteerror");
-    checkboxes.forEach((item) => {
-      if (item.value !== checkbox) {
-        item.checked = false;
-      } else {
-        siteerror = item.value;
-      }
-    });
-  });
-
-  $("input[name='feedDetails']").click(function () {
-
-    var checkbox = $(this).attr('value');
-
-    var checkboxes = document.getElementsByName("feedDetails");
-    checkboxes.forEach((item) => {
-      if (item.value !== checkbox) {
-        item.checked = false;
-      } else {
-        feedDetails = item.value;
-      }
-    });
-  });
 
   var selectedArrayInputs = [];
 
@@ -131,19 +93,6 @@ $(function () {
 
   $('#cf_rca_categories').change(function () {
     showSubCategories();
-
-    var categories;
-    categories = $('#cf_rca_categories').val();
-
-    chrome.tabs.query({
-      active: true,
-      currentWindow: true
-    }, function (tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        todo: "changeCategory",
-        enteredCategories: categories,
-      });
-    });
   });
 
 
@@ -159,44 +108,43 @@ $(function () {
         var val = [];
     }
     if (selectedIndexx == 2) {
-        var val = [2,11,26,30,33];
+        var val = [3,12,27,31,34];
     }
     if (selectedIndexx == 5) {
-        var val = [8];
+        var val = [9];
     }
     if (selectedIndexx == 6) {
-        var val = [3,13,20];
-    }
-    if (selectedIndexx == 9) {
-        var val = [1,12];
-    }
-    if (selectedIndexx == 10) {
-        var val = [6,16];
-    }
-    if (selectedIndexx == 13) {
-        var val = [10,19,23,28,34,35,36];
-    }
-    if (selectedIndexx == 14) {
-        var val = [7,10,17,24];
-    }
-    if (selectedIndexx == 15) {
         var val = [4,14,21];
     }
+    if (selectedIndexx == 9) {
+        var val = [2,13];
+    }
+    if (selectedIndexx == 10) {
+        var val = [7,17];
+    }
+    if (selectedIndexx == 13) {
+        var val = [11,20,24,29,35,36,37];
+    }
+    if (selectedIndexx == 14) {
+        var val = [8,18,25];
+    }
+    if (selectedIndexx == 15) {
+        var val = [5,15,22];
+    }
     if (selectedIndexx == 16) {
-        var val = [5,15,22,27,32];
+        var val = [6,16,23,28,33];
     }
     if (selectedIndexx == 17) {
-        var val = [9,18,25,29,31];
+        var val = [10,19,26,30,32];
     }
 
-	
     showValue(val);
   }
 
   function showValue(val){
 
 
-    for(i = 1; i < 37; i++){
+    for(i = 1; i < 38; i++){
             var flag = 0;
 
             for(j = 0; j < val.length; j++){
@@ -210,6 +158,8 @@ $(function () {
                 $("#cf_rca_sub_categories option[value|='" + value + "']").css('display', 'none');
             }
         }
+
+        $("#cf_rca_sub_categories option[value|='" + selectedSubCategory + "']").attr('selected', 'selected');
   }
 
   $('#saveInputs').click(function () {
@@ -223,16 +173,6 @@ $(function () {
     if (ForceRefreshed == undefined) {
       ForceRefreshed = 'No';
     }
-    if (screenshots == undefined) {
-      screenshots = 'No';
-    }
-    if (siteerror == undefined) {
-      siteerror = 'No';
-    }
-    if (feedDetails == undefined) {
-      feedDetails = 'No';
-    }
-    
 
     probstatement = $('#ainput').val();
     listofreportemitems = $('#binput').val();
@@ -241,9 +181,9 @@ $(function () {
     currentStatus = $('#ginput').val();
     hoursWorked = $('#hinput').val();
 
-    comment = "Problem Statement - " + probstatement + "\nList all reported items - " + listofreportemitems + "\nAnalysis - " + analysis + "\nFiremem Link - " + firementLink + "\nCurrent production status - " + currentStatus + "\nItems force refreshed? " + ForceRefreshed + "\nAttachments as required - " + Attachments + "\nDB data/screenshots(DQ) - " + screenshots + "\nEnd site screenshot(UAR & Site Error) - " + siteerror + "\nFeed Details - " + feedDetails;
+    comment = "Problem Statement - " + probstatement + "\nList all reported items - " + listofreportemitems + "\nAnalysis - " + analysis + "\nFiremem Link - " + firementLink + "\nItems force refreshed? " + ForceRefreshed + "\nAttachments as required - " + Attachments + "\nCurrent production status - " + currentStatus;
     department = $('#cf_department').val();
-    // categories = $('#cf_rca_categories').val();
+    categories = $('#cf_rca_categories').val();
     subcategories = $('#cf_rca_sub_categories').val();
     workflow = $('#cf_workflow_status').val();
     bugstatus1 = $('#cf_bug_status').val();
@@ -257,7 +197,7 @@ $(function () {
         todo: "changeStatus",
         enteredComment: comment,
         enteredDepartment: department,
-        // enteredCategories: categories,
+        enteredCategories: categories,
         enteredSubCategories: subcategories,
         enteredWorkflow: workflow,
         enteredBugstatus1: bugstatus1,

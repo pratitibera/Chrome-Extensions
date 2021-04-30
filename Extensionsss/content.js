@@ -17,9 +17,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request.todo == "changeStatus") {
 
+		alert(request.enteredSubCategories);
+
 		$('#comment').val(request.enteredComment);
 
-		$('#cf_mentor').val(request.hoursWorked);
+		$('#work_time').val(request.hoursWorked);
 		
 		const textArea=document.evaluate("//*[@id='blankText']/div/div[2]/div/div[1]/textarea", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         textArea.value=request.enteredComment;
@@ -29,7 +31,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		
 
 		$("#cf_department option[value|='" + request.enteredDepartment + "']").attr('selected', 'selected');
-		// $("#cf_rca_categories option[value|='" + request.enteredCategories + "']").attr('selected', 'selected');
+		$("#cf_rca_categories option[value|='" + request.enteredCategories + "']").attr('selected', 'selected');
 		$("#cf_rca_sub_categories option[value|='" + request.enteredSubCategories + "']").attr('selected', 'selected');
 		$("#cf_workflow_status option[value|='" + request.enteredWorkflow + "']").attr('selected', 'selected');
 		$("#bug_status option[value|='" + request.enteredBugstatus1 + "']").attr('selected', 'selected');
@@ -55,10 +57,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		}
 
 	}
-
-	if (request.todo == "changeCategory") {
-		$("#cf_rca_categories option[value|='" + request.enteredCategories + "']").attr('selected', 'selected');
-	}
 });
 
 var arrayOfSelecedIDs = [];
@@ -80,13 +78,6 @@ document.getElementById('cf_rca_sub_categories').onchange = function () {
 };
 
 document.getElementById('cf_iae_resolution').onchange = function () {
-	// var elements = document.getElementById('cf_iae_resolution').childNodes;
-	// arrayOfSelecedIDs = []
-	// for (i = 0; i < elements.length; i++) {
-	// 	if (elements[i].selected) {
-	// 		arrayOfSelecedIDs.push(elements[i].value)
-	// 	}
-	// }
 	sendMsg()
 };
 
@@ -102,7 +93,7 @@ document.getElementById('resolution').onchange = function () {
 	sendMsg();
 };
 
-document.getElementById('cf_mentor').onchange = function () {
+document.getElementById('work_time').onchange = function () {
 	sendMsg();
 };
 
@@ -114,7 +105,7 @@ function sendMsg() {
 	var selector5 = document.getElementById('cf_workflow_status').selectedIndex
 	var selector6 = document.getElementById('bug_status').selectedIndex
 	var selector7 = document.getElementById('resolution').selectedIndex
-	var selector8 = document.getElementById('cf_mentor').value;
+	var selector8 = document.getElementById('work_time').value;
 
 	var elements = document.getElementById('cf_iae_resolution').childNodes;
 	arrayOfSelecedIDs = []

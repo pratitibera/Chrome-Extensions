@@ -33,11 +33,8 @@
                   <input type="text" class="input" id="dinput">
                </div>
                <div class="inputfield">
-                  <label>Next steps for customer</label>
-                  <input type="text" class="input" id="ginput">
-               </div>
-               <div class="inputfield">
                   <label>Items force refreshed?</label> 
+                  <!-- <input type="text" class="input" id="einput"> -->
                   <label class="check">
                   <input type="checkbox" name="ForceRefreshed" value="Yes">
                   <span class="checkmark"></span>
@@ -51,6 +48,7 @@
                </div>
                <div class="inputfield">
                   <label>Attachments as required?</label>
+                  <!-- <input type="text" class="input" id="finput"> -->
                   <label class="check">
                   <input type="checkbox" name="Attachments" value="Yes">
                   <span class="checkmark"></span>
@@ -63,43 +61,12 @@
                   <p>No</p>
                </div>
                <div class="inputfield">
-                  <label>DB data/screenshots(DQ)</label>
-                  <label class="check">
-                  <input type="checkbox" name="screenshots" value="Yes">
-                  <span class="checkmark"></span>
-                  </label>
-                  <p>Yes</p>
-                  <label class="check">
-                  <input type="checkbox" name="screenshots" value="No">
-                  <span class="checkmark"></span>
-                  </label>
-                  <p>No</p>
+                  <label>Current production status</label>
+                  <input type="text" class="input" id="ginput">
                </div>
                <div class="inputfield">
-                  <label>End site screenshot(UAR & Site Error)</label>
-                  <label class="check">
-                  <input type="checkbox" name="siteerror" value="Yes">
-                  <span class="checkmark"></span>
-                  </label>
-                  <p>Yes</p>
-                  <label class="check">
-                  <input type="checkbox" name="siteerror" value="No">
-                  <span class="checkmark"></span>
-                  </label>
-                  <p>No</p>
-               </div>
-               <div class="inputfield">
-                  <label>Feed Details</label>
-                  <label class="check">
-                  <input type="checkbox" name="feedDetails" value="Yes">
-                  <span class="checkmark"></span>
-                  </label>
-                  <p>Yes</p>
-                  <label class="check">
-                  <input type="checkbox" name="feedDetails" value="No">
-                  <span class="checkmark"></span>
-                  </label>
-                  <p>No</p>
+                  <label>Hours worked</label>
+                  <input type="text" class="input" id="hinput">
                </div>
             </div>
             <div class="col-sm-6">
@@ -317,10 +284,6 @@
                </div>
                <br><br><br><br>
                <div class="inputfield">
-                  <label>Mentoring effort</label>
-                  <input type="text" class="input" id="hinput">
-               </div>
-               <div class="inputfield">
                   <label>Workflow Status</label>
                   <div class="custom_select">
                      <select id="cf_workflow_status"  name="workflow_status" class="btn2">
@@ -368,7 +331,6 @@
          <div class="inputfield">
             <input type="button" value="UPDATE" class="btn" id="saveInputs">
          </div> 
-         <h6>Please assign your bug through Bug Template</h6>
          <h6>For any issue or suggestion, contact Ayush Agarwal. </h6>
       </div>
       <div id="popup-handler2-content" style="padding: 10px; width: 60%;">
@@ -408,6 +370,7 @@
          <button id="JN_OUT_OF_SCOPE" class="btn">JN_OUT_OF_SCOPE</button><br>
          <button id="execute" class="btn"><b>Execute</b></button>
          <br>
+         <h5>For any Issue or Suggestion contact <br>Ayush Agarwal</h5>
       </div>
    </body>
 </html>
